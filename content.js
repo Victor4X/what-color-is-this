@@ -21,7 +21,7 @@ chrome.runtime.onMessage.addListener(
                 textField.style.setProperty('z-index', 1100); // put on top?
                 textField.style.setProperty('font-size', 40);
                 document.body.appendChild(textField);
-                interval = setInterval(grabColor, 100) //interval for grabbing color (interval x timeout)
+                interval = setInterval(grabColor, 80) //interval for grabbing color (interval x timeout)
             } else {
                 alert("toggled off!");
                 document.removeEventListener('mousemove', logPosition);
@@ -33,7 +33,7 @@ chrome.runtime.onMessage.addListener(
 );
 
 function logPosition(e) {
-    timeout = 5;
+    timeout = 3;
     var x = e.clientX;
     var y = e.clientY;
     var coor = "Coordinates: (" + x + "," + y + ")";
