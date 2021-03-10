@@ -20,6 +20,7 @@ chrome.runtime.onMessage.addListener(
                 textField.style.setProperty('top', 0);
                 textField.style.setProperty('z-index', 1100); // put on top?
                 textField.style.setProperty('font-size', 40);
+                textField.style.setProperty('background', "rgba(0,0,0,0.2)");
                 document.body.appendChild(textField);
                 interval = setInterval(grabColor, 80) //interval for grabbing color (interval x timeout)
             } else {
