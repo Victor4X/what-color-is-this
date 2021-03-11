@@ -1,46 +1,3 @@
-
-/*
-
-+-----------------------------------------------------------------+
-|   Created by Chirag Mehta - http://chir.ag/tech/download/ntc    |
-|-----------------------------------------------------------------|
-|               ntc js (Name that Color JavaScript)               |
-+-----------------------------------------------------------------+
-
-All the functions, code, lists etc. have been written specifically
-for the Name that Color JavaScript by Chirag Mehta unless otherwise
-specified.
-
-This script is released under the: Creative Commons License:
-Attribution 2.5 http://creativecommons.org/licenses/by/2.5/
-
-Sample Usage:
-
-  <script type="text/javascript" src="ntc.js"></script>
-
-  <script type="text/javascript">
-
-    var n_match  = ntc.name("#6195ED");
-    n_rgb = n_match[0]; // This is the RGB value of the closest matching color
-    n_name = n_match[1]; // This is the text string for the name of the match
-    n_shade_rgb = n_match[2]; // This is the RGB value for the name of colors shade
-    n_shade_name = n_match[3]; // This is the text string for the name of colors shade
-    n_exactmatch = n_match[4]; // True if exact color match, False if close-match
-
-    alert(n_match);
-
-  </script>
-
-*/
-
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.message == 'getColorName') {
-    let colorName = ntc.name(request.data);
-    sendResponse({ name: colorName });
-  }
-  return true;
-});
-
 /*
 
 +-----------------------------------------------------------------+
@@ -72,6 +29,14 @@ Sample Usage:
   </script>
 
 */
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.message == 'getColorName') {
+    let colorName = ntc.name(request.data);
+    sendResponse({ name: colorName });
+  }
+  return true;
+});
 
 var ntc = {
 
